@@ -37,9 +37,7 @@ class WSAdapter:
         """Emit Event Context"""
         activator = message["event_name"]
         eventer = self.get_event(activator)
-        print("event - ", eventer)
         if not eventer:
             raise Exception("[Error] Event not exist")
-        print("event - ", eventer.__dict__)
         await eventer.event(origin, channel, message)
 

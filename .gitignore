@@ -1,7 +1,3 @@
-
-# Created by https://www.toptal.com/developers/gitignore/api/emacs,python
-# Edit at https://www.toptal.com/developers/gitignore?templates=emacs,python
-
 ### Emacs ###
 # -*- mode: gitignore; -*-
 *~
@@ -191,5 +187,3 @@ dmypy.json
 
 # Cython debug symbols
 cython_debug/
-
-# End of https://www.toptal.com/developers/gitignore/api/emacs,python

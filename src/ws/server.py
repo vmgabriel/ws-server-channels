@@ -65,7 +65,6 @@ class Server:
 
     async def handler(self, websocket, path):
         self.channel(path, websocket)
-        print("self.channels - ", self.channels)
         message = {
             "message": "Connected Correctly",
             "verbose_message": f"Conected to {path}",
@@ -80,7 +79,6 @@ class Server:
                 is_valid, dict_message = convert_message(message)
                 if is_valid:
                     dict_message["timestamp"] = str(datetime.now().isoformat())
-                    print("dict_message - ", dict_message)
                     # Emit Event
                     await self.emitter.emit(str(websocket.id), self.get_channel(path), dict_message)
                 else:
@@ -88,7 +86,6 @@ class Server:
                     await self.output(message, path, MessageType.UNICAST, "SERVER", [str(websocket.id)])
                     self.remove_consumer_channel(path, websocket)
         except Exception as exc:
-            print("Error - ", exc)
             self.remove_consumer_channel(path, websocket)
             channel = self.get_channel(path)
             if len(channel.consumers) == 0:
